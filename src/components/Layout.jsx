@@ -1,14 +1,16 @@
 import React from "react";
+import Stepper from "./Stepper";
 
-function Layout({ step, children }) {
+function Layout({ step,setStep, children }) {
   return (
-    <div className=" relative w-full grid md:grid-cols-2">
+    <div className=" relative min-h-screen w-full grid md:grid-cols-2">
       <div className="relative p-6 px-[5%] grid content-between">
         <div className="  header steps space-y-8">
           <img src="/assets/logo.png" alt="logo" className="w-24" />
+          <Stepper  step={step} />
         </div>
-        <div className="w-full max-w-md">{children}</div>
-        <div className="footer flex justify-between items-center">
+        <div className="w-full max-w-sm mx-auto flex flex-col justify-center">{children}</div>
+        <div className="footer flex  mt-6 gap-4 flex-col-reverse sm:flex-row justify-center  sm:justify-between items-center">
           <span> © Markatty|Mo7med {new Date().getFullYear()}</span>
           <a
             href={"mailto:support@markatty.com"}
@@ -19,11 +21,11 @@ function Layout({ step, children }) {
           </a>
         </div>
       </div>
-      <div className="relative min-h-screen bg-primary  overflow-hidden">
+      <div className="md:block hidden relative min-h-screen bg-primary  overflow-hidden">
         <img
           src="/assets/background.png"
           alt="Background"
-          className=" bg-center bg-no-repeat w-auto min-h-screen "
+          className="bg-cover bg-center bg-no-repeat w-auto min-h-screen "
         />
         <div className=" absolute  inset-0 bg-gradient-to-tr from-black/70   to-white/5  flex items-center justify-center ">
           <div className="w-[80%] max-w-xl text-white font-medium gap-8">
@@ -52,8 +54,11 @@ function Layout({ step, children }) {
           </div>
         </div>
       </div>
-      <img src="/assets/Vector.svg" alt="step arrow icon " 
-      className="absolute left-[50%] translate-x-[-50%] bottom-[7%]" />
+      <img
+        src="/assets/Vector.svg"
+        alt="step arrow icon "
+        className=" md:block hidden absolute left-[50%] translate-x-[-50%] bottom-[7%]"
+      />
     </div>
   );
 }

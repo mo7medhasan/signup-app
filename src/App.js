@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./index.css";
 import Layout from "./components/Layout";
+import Step1Details from "./components/Step1Details";
+import Step2Confirmation from "./components/Step2Confirmation";
+import Step3StoreInformation from "./components/Step3StoreInformation";
 
 const App = () => {
-  const [step, setStep] = useState(1);
-
+  const [step, setStep] = useState(3);
+  const [dataForm, setDataForm] = useState({});
   const nextStep = () => {
     setStep(step + 1);
   };
@@ -17,45 +20,39 @@ const App = () => {
     <Layout
       className=" min-h-screen !text-black"
       step={step}
+      setStep={setStep}
       nextStep={nextStep}
       previousStep={previousStep}
-      
     >
-       <div className="w-full max-w-md ">
-    {step === 1 && (
-      <div>
-        <h1 className="text-3xl font-bold mb-5">Basic Information</h1>
-        {/* Input fields for name, email, phone number, and password */}
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={nextStep}>
-          Next
-        </button>
+      <div className="w-full max-w-sm mx-auto flex flex-col justify-center ">
+        {step === 1 && (
+          <div>
+            <Step1Details
+              dataForm={dataForm}
+              setDataForm={setDataForm}
+              nextStep={nextStep}
+            />
+          </div>
+        )}
+        {step === 2 && (
+          <div>
+            <Step2Confirmation
+              dataForm={dataForm}
+              nextStep={nextStep}
+              previousStep={previousStep}
+            />
+          </div>
+        )}
+        {step === 3 && (
+          <div>
+            <Step3StoreInformation
+              dataForm={dataForm}
+              setDataForm={setDataForm}
+              previousStep={previousStep}
+            />
+          </div>
+        )}
       </div>
-    )}
-    {step === 2 && (
-      <div>
-        <h1 className="text-3xl font-bold mb-5">Confirm Email</h1>
-        {/* Input fields for email verification code */}
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={nextStep}>
-          Verify
-        </button>
-        <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={previousStep}>
-          Back
-        </button>
-      </div>
-    )}
-    {step === 3 && (
-      <div>
-        <h1 className="text-3xl font-bold mb-5">Set Store Main Info</h1>
-        {/* Input fields for store name, store URL, store language, and store industry */}
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Complete
-        </button>
-        <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={previousStep}>
-          Back
-        </button>
-      </div>
-    )}
-  </div>
     </Layout>
   );
 };
