@@ -6,7 +6,7 @@ import Step2Confirmation from "./components/Step2Confirmation";
 import Step3StoreInformation from "./components/Step3StoreInformation";
 
 const App = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
   const [dataForm, setDataForm] = useState({});
   const nextStep = () => {
     setStep(step + 1);

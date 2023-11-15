@@ -4,6 +4,9 @@ import Button from "./Button";
 import Select from "./Select";
 import SelectCustom from "./SelectCustom";
 import InputCustom from "./InputCustom";
+import toast, { Toaster } from "react-hot-toast";
+
+
 const options = [
   { value: "English", label: "English", image: "/assets/Usa.jpg" },
   { value: "Arabic", label: "Arabic", image: "/assets/Egypt.jpg" },
@@ -17,6 +20,8 @@ const options2 = [
 function Step3StoreInformation({ dataForm, setDataForm, previousStep }) {
   const [selected, setSelected] = useState(options[0]);
   const [selectedOption, setSelectedOption] = useState(options2[0]);
+  const notify = () =>
+  toast.success('thanks for test my cod');
   const {
     register,
     handleSubmit,
@@ -33,7 +38,7 @@ function Step3StoreInformation({ dataForm, setDataForm, previousStep }) {
         industry: selectedOption.value,
       },
     }));
-
+    notify()
     console.log(dataForm);
   };
 
@@ -87,6 +92,7 @@ function Step3StoreInformation({ dataForm, setDataForm, previousStep }) {
       >
         <img src="/icons/arrow-left.svg" alt="icon arrow" /> Back to log in
       </button>
+      <Toaster />
     </div>
   );
 }
