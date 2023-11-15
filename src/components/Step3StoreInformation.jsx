@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Input from "./Input";
 import Button from "./Button";
 import Select from "./Select";
 import SelectCustom from "./SelectCustom";
@@ -21,7 +20,7 @@ function Step3StoreInformation({ dataForm, setDataForm, previousStep }) {
   const {
     register,
     handleSubmit,
-    watch,
+    
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
