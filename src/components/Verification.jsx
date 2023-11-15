@@ -43,10 +43,8 @@ function Verification({ dataForm, setConfirmation }) {
         <p className="leading-[1.5] text-[#475467]">
           We sent a verification code to{" "}
         </p>
-        {/* <p className="leading-[1.5] text-[#475467] mt-2">{dataForm?.['step1']['email']?dataForm['step1']['email']:"omarmouneer@gmail.com"} </p> */}
-        <p className="leading-[1.5] text-[#475467] mt-2">
-          omarmouneer@gmail.com{" "}
-        </p>
+        <p className="leading-[1.5] text-[#475467] mt-2">{dataForm?.['step1']['email']?dataForm['step1']['email']:"omarmouneer@gmail.com"} </p>
+   
       </div>
 
       <AuthCode
