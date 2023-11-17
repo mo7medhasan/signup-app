@@ -8,7 +8,7 @@ function Step1Details({ dataForm, setDataForm, nextStep }) {
 
   useEffect(() => {
     dataForm["step1"]?.length> 0&& !data.length  && setData(dataForm["step1"]);
-  }, [dataForm]);
+  }, [data.length, dataForm]);
 
   const handleSubmit = (event) => {
 

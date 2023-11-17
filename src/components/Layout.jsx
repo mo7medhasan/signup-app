@@ -22,10 +22,10 @@ function Layout({ step,setStep, children }) {
         </div>
       </div>
       <div className="md:block hidden relative min-h-screen bg-primary  overflow-hidden">
-        <img
+       <img
           src="/assets/background.png"
-          alt="Background"
-          className="bg-cover bg-center bg-no-repeat w-auto min-h-screen "
+          alt="Background" width={100} height={100}
+          className="bg-cover bg-fixed aspect-[2.5] inset-0 w-auto h-full  bg-center bg-no-repeat min-h-screen "
         />
         <div className=" absolute  inset-0 bg-gradient-to-tr from-black/70   to-white/5  flex items-center justify-center ">
           <div className="w-[80%] max-w-xl text-white font-medium gap-8">
